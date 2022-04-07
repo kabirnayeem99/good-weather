@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="org.asdtm.goodweather">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -12,80 +11,92 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name=".legacy.GoodWeatherApp"
+        android:name=".GoodWeatherApp"
         android:icon="@mipmap/ic_launcher"
         android:installLocation="internalOnly"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeLight">
+        android:theme="@style/AppThemeDark">
+
         <activity
-            android:name=".legacy.MainActivity"
+            android:name=".ui.landing.LandingActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:launchMode="singleTop">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".legacy.SettingsActivity"
-            android:exported="false"
-            android:label="@string/nav_menu_settings"
-            android:parentActivityName=".legacy.MainActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".legacy.MainActivity" />
-        </activity>
-        <activity
-            android:name=".legacy.SearchActivity"
-            android:exported="false"
-            android:label="@string/title_activity_search"
-            android:parentActivityName=".legacy.MainActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".legacy.MainActivity" />
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
-        <activity
-            android:name=".legacy.WeatherForecastActivity"
-            android:exported="false"
-            android:label="@string/label_activity_weather_forecast"
-            android:parentActivityName=".legacy.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".legacy.MainActivity" />
-        </activity>
-        <activity
-            android:name=".legacy.GraphsActivity"
-            android:exported="false"
-            android:label="@string/label_activity_graphs"
-            android:parentActivityName=".legacy.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".legacy.MainActivity" />
-        </activity>
-        <activity
-            android:name=".legacy.LicenseActivity"
-            android:exported="false"
-            tools:ignore="GoogleAppIndexingUrlError">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:pathPrefix="/android_asset/licenses/"
-                    android:scheme="file" />
-            </intent-filter>
-        </activity>
+
+        <!--        <activity-->
+        <!--            android:name=".legacy.MainActivity"-->
+        <!--            android:exported="true"-->
+        <!--            android:launchMode="singleTop">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+
+        <!--        <activity-->
+        <!--            android:name=".legacy.SettingsActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:label="@string/nav_menu_settings"-->
+        <!--            android:parentActivityName=".legacy.MainActivity"-->
+        <!--            android:screenOrientation="portrait">-->
+        <!--            <meta-data-->
+        <!--                android:name="android.support.PARENT_ACTIVITY"-->
+        <!--                android:value=".legacy.MainActivity" />-->
+        <!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name=".legacy.SearchActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:label="@string/title_activity_search"-->
+        <!--            android:parentActivityName=".legacy.MainActivity"-->
+        <!--            android:screenOrientation="portrait">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.SEARCH" />-->
+        <!--            </intent-filter>-->
+
+        <!--            <meta-data-->
+        <!--                android:name="android.support.PARENT_ACTIVITY"-->
+        <!--                android:value=".legacy.MainActivity" />-->
+        <!--            <meta-data-->
+        <!--                android:name="android.app.searchable"-->
+        <!--                android:resource="@xml/searchable" />-->
+        <!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name=".legacy.WeatherForecastActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:label="@string/label_activity_weather_forecast"-->
+        <!--            android:parentActivityName=".legacy.MainActivity">-->
+        <!--            <meta-data-->
+        <!--                android:name="android.support.PARENT_ACTIVITY"-->
+        <!--                android:value=".legacy.MainActivity" />-->
+        <!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name=".legacy.GraphsActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:label="@string/label_activity_graphs"-->
+        <!--            android:parentActivityName=".legacy.MainActivity">-->
+        <!--            <meta-data-->
+        <!--                android:name="android.support.PARENT_ACTIVITY"-->
+        <!--                android:value=".legacy.MainActivity" />-->
+        <!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name=".legacy.LicenseActivity"-->
+        <!--            android:exported="false"-->
+        <!--            tools:ignore="GoogleAppIndexingUrlError">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.VIEW" />-->
+        <!--                <category android:name="android.intent.category.DEFAULT" />-->
+        <!--                <data-->
+        <!--                    android:pathPrefix="/android_asset/licenses/"-->
+        <!--                    android:scheme="file" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
         <receiver
             android:name=".legacy.receiver.StartupReceiver"
