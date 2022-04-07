@@ -1,123 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-        xmlns:tools="http://schemas.android.com/tools"
-        package="org.asdtm.goodweather"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.asdtm.goodweather">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name=".GoodWeatherApp"
+        android:name=".legacy.GoodWeatherApp"
         android:icon="@mipmap/ic_launcher"
         android:installLocation="internalOnly"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight">
         <activity
-            android:name=".MainActivity"
+            android:name=".legacy.MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleTop">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".legacy.SettingsActivity"
+            android:exported="false"
             android:label="@string/nav_menu_settings"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".legacy.MainActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".legacy.MainActivity" />
         </activity>
         <activity
-            android:name=".SearchActivity"
+            android:name=".legacy.SearchActivity"
+            android:exported="false"
             android:label="@string/title_activity_search"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".legacy.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".legacy.MainActivity" />
             <meta-data
                 android:name="android.app.searchable"
-                android:resource="@xml/searchable"/>
+                android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".WeatherForecastActivity"
+            android:name=".legacy.WeatherForecastActivity"
+            android:exported="false"
             android:label="@string/label_activity_weather_forecast"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".legacy.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".legacy.MainActivity" />
         </activity>
         <activity
-            android:name=".GraphsActivity"
+            android:name=".legacy.GraphsActivity"
+            android:exported="false"
             android:label="@string/label_activity_graphs"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".legacy.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".legacy.MainActivity" />
         </activity>
         <activity
-                android:name=".LicenseActivity"
-                android:exported="false"
-                tools:ignore="GoogleAppIndexingUrlError">
+            android:name=".legacy.LicenseActivity"
+            android:exported="false"
+            tools:ignore="GoogleAppIndexingUrlError">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <data
                     android:pathPrefix="/android_asset/licenses/"
-                    android:scheme="file"/>
+                    android:scheme="file" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".receiver.StartupReceiver">
+        <receiver
+            android:name=".legacy.receiver.StartupReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".widget.LessWidgetProvider">
+        <receiver
+            android:name=".legacy.widget.LessWidgetProvider"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.intent.action.LOCALE_CHANGED"/>
-                <action android:name="org.asdtm.goodweather.action.FORCED_APPWIDGET_UPDATE"/>
-                <action android:name="org.asdtm.goodweather.action.APPWIDGET_THEME_CHANGED"/>
-                <action android:name="org.asdtm.goodweather.action.APPWIDGET_UPDATE_PERIOD_CHANGED"/>
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_provider_less"/>
-        </receiver>
-        <receiver android:name=".widget.MoreWidgetProvider">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                <action android:name="android.intent.action.LOCALE_CHANGED"/>
-                <action android:name="org.asdtm.goodweather.action.FORCED_APPWIDGET_UPDATE"/>
-                <action android:name="org.asdtm.goodweather.action.APPWIDGET_THEME_CHANGED"/>
-                <action android:name="org.asdtm.goodweather.action.APPWIDGET_UPDATE_PERIOD_CHANGED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="org.asdtm.goodweather.action.FORCED_APPWIDGET_UPDATE" />
+                <action android:name="org.asdtm.goodweather.action.APPWIDGET_THEME_CHANGED" />
+                <action android:name="org.asdtm.goodweather.action.APPWIDGET_UPDATE_PERIOD_CHANGED" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_provider_more"/>
+                android:resource="@xml/widget_provider_less" />
+        </receiver>
+        <receiver
+            android:name=".legacy.widget.MoreWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="org.asdtm.goodweather.action.FORCED_APPWIDGET_UPDATE" />
+                <action android:name="org.asdtm.goodweather.action.APPWIDGET_THEME_CHANGED" />
+                <action android:name="org.asdtm.goodweather.action.APPWIDGET_UPDATE_PERIOD_CHANGED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider_more" />
         </receiver>
 
-        <service android:name=".service.NotificationService"/>
-        <service android:name=".widget.LessWidgetService"/>
-        <service android:name=".widget.MoreWidgetService"/>
-        <service android:name=".service.CurrentWeatherService"/>
-        <service android:name=".service.LocationUpdateService" />
+        <service android:name=".legacy.service.NotificationService" />
+        <service android:name=".legacy.widget.LessWidgetService" />
+        <service android:name=".legacy.widget.MoreWidgetService" />
+        <service android:name=".legacy.service.CurrentWeatherService" />
+        <service android:name=".legacy.service.LocationUpdateService" />
     </application>
 </manifest>

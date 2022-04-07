@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppBaseThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppBaseThemeLight" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -9,7 +9,7 @@
         <item name="actionBarPopupTheme">@style/AppThemeLight.Toolbar</item>
     </style>
 
-    <style name="AppBaseThemeDark" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppBaseThemeDark" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccentDark</item>
@@ -18,11 +18,9 @@
         <item name="actionBarPopupTheme">@style/AppThemeLight.Toolbar</item>
     </style>
 
-    <style name="AppThemeDark" parent="AppBaseThemeDark">
-    </style>
+    <style name="AppThemeDark" parent="AppBaseThemeDark" />
 
-    <style name="AppThemeLight" parent="AppBaseThemeLight">
-    </style>
+    <style name="AppThemeLight" parent="AppBaseThemeLight" />
 
     <style name="TextViewStyle" parent="android:Widget.TextView">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
@@ -40,9 +38,15 @@
 
     <style name="MainIcon">
         <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_marginEnd" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_marginStart" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_marginLeft" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginEnd" tools:targetApi="17">
+            @dimen/activity_horizontal_margin
+        </item>
+        <item name="android:layout_marginStart" tools:targetApi="17">
+            @dimen/activity_horizontal_margin
+        </item>
+        <item name="android:layout_marginLeft" tools:targetApi="17">
+            @dimen/activity_horizontal_margin
+        </item>
         <item name="android:textAlignment" tools:targetApi="17">gravity</item>
         <item name="android:textSize">18sp</item>
         <item name="android:gravity">center</item>
@@ -51,8 +55,12 @@
 
     <style name="MainConditions">
         <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_marginEnd" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_marginStart" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginEnd" tools:targetApi="17">
+            @dimen/activity_horizontal_margin
+        </item>
+        <item name="android:layout_marginStart" tools:targetApi="17">
+            @dimen/activity_horizontal_margin
+        </item>
         <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textSize">20sp</item>

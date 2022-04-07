@@ -16,4 +16,4 @@
 #   public *;
 #}
 
--keep class org.asdtm.goodweather.model.WeatherForecast { *; }
+-keep class org.asdtm.goodweather.legacy.model.WeatherForecast { *; }
